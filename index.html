@@ -2,68 +2,968 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <title>Engineering Project Help</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Engineering Mentor Pro | Expert Project Guidance</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&family=Roboto+Mono:wght@300;400;500&display=swap" rel="stylesheet">
     <style>
+        :root {
+            --primary: #4A6FFF;
+            --primary-dark: #3A5CE8;
+            --secondary: #00D4AA;
+            --dark-bg: #0F1525;
+            --darker-bg: #0A0F1A;
+            --card-bg: #1A2238;
+            --text-light: #E6EDFF;
+            --text-muted: #8C9BC6;
+            --border-color: #2A3655;
+            --success: #00C896;
+            --warning: #FFB74D;
+            --gradient: linear-gradient(135deg, var(--primary), #6A5AF9);
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
         body {
-            font-family: Arial, sans-serif;
-            background: #f4f6f8;
-            padding: 40px;
+            font-family: 'Poppins', sans-serif;
+            background-color: var(--dark-bg);
+            color: var(--text-light);
+            line-height: 1.6;
+            overflow-x: hidden;
         }
+
+        h1, h2, h3, h4 {
+            font-weight: 700;
+            line-height: 1.2;
+            margin-bottom: 1rem;
+        }
+
         .container {
-            max-width: 500px;
-            background: white;
-            padding: 25px;
-            border-radius: 8px;
-            box-shadow: 0 0 10px rgba(0,0,0,0.1);
-            margin: auto;
-        }
-        h2 {
-            text-align: center;
-        }
-        input, textarea, button {
             width: 100%;
-            padding: 10px;
-            margin-top: 10px;
-            font-size: 14px;
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
         }
-        button {
-            background: #007bff;
+
+        /* Header & Navigation */
+        header {
+            background-color: rgba(10, 15, 26, 0.95);
+            backdrop-filter: blur(10px);
+            position: fixed;
+            width: 100%;
+            z-index: 1000;
+            border-bottom: 1px solid var(--border-color);
+            padding: 1rem 0;
+        }
+
+        .nav-container {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .logo {
+            font-size: 1.8rem;
+            font-weight: 700;
+            color: white;
+            display: flex;
+            align-items: center;
+        }
+
+        .logo i {
+            color: var(--secondary);
+            margin-right: 10px;
+        }
+
+        .logo span {
+            color: var(--primary);
+        }
+
+        nav ul {
+            display: flex;
+            list-style: none;
+        }
+
+        nav li {
+            margin-left: 2rem;
+        }
+
+        nav a {
+            color: var(--text-light);
+            text-decoration: none;
+            font-weight: 500;
+            transition: color 0.3s;
+            padding: 0.5rem 0;
+            position: relative;
+        }
+
+        nav a:hover {
+            color: var(--secondary);
+        }
+
+        nav a::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 0;
+            height: 2px;
+            background: var(--gradient);
+            transition: width 0.3s;
+        }
+
+        nav a:hover::after {
+            width: 100%;
+        }
+
+        .cta-button {
+            background: var(--gradient);
             color: white;
             border: none;
+            padding: 0.8rem 1.8rem;
+            border-radius: 50px;
+            font-weight: 600;
             cursor: pointer;
-            border-radius: 4px;
+            transition: transform 0.3s, box-shadow 0.3s;
+            text-decoration: none;
+            display: inline-block;
         }
-        button:hover {
-            background: #0056b3;
+
+        .cta-button:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 10px 20px rgba(74, 111, 255, 0.3);
+        }
+
+        /* Hero Section */
+        .hero {
+            padding: 180px 0 100px;
+            background: linear-gradient(135deg, var(--darker-bg) 0%, var(--dark-bg) 100%);
+            position: relative;
+            overflow: hidden;
+        }
+
+        .hero::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            right: 0;
+            width: 50%;
+            height: 100%;
+            background: radial-gradient(circle at top right, rgba(74, 111, 255, 0.15) 0%, transparent 70%);
+        }
+
+        .hero-content {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 3rem;
+            align-items: center;
+        }
+
+        .hero-text h1 {
+            font-size: 3.2rem;
+            margin-bottom: 1.5rem;
+            background: linear-gradient(to right, var(--text-light), var(--secondary));
+            -webkit-background-clip: text;
+            background-clip: text;
+            color: transparent;
+        }
+
+        .hero-text p {
+            font-size: 1.2rem;
+            color: var(--text-muted);
+            margin-bottom: 2rem;
+        }
+
+        .hero-image {
+            position: relative;
+            text-align: center;
+        }
+
+        .hero-image img {
+            max-width: 100%;
+            border-radius: 10px;
+            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.4);
+        }
+
+        /* Sections */
+        section {
+            padding: 100px 0;
+        }
+
+        .section-title {
+            text-align: center;
+            margin-bottom: 3rem;
+        }
+
+        .section-title h2 {
+            font-size: 2.5rem;
+            display: inline-block;
+            position: relative;
+        }
+
+        .section-title h2::after {
+            content: '';
+            position: absolute;
+            bottom: -10px;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 80px;
+            height: 4px;
+            background: var(--gradient);
+            border-radius: 2px;
+        }
+
+        /* Services Section */
+        .services-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(350px, 1fr));
+            gap: 2rem;
+        }
+
+        .service-card {
+            background-color: var(--card-bg);
+            border-radius: 10px;
+            padding: 2rem;
+            transition: transform 0.3s, box-shadow 0.3s;
+            border: 1px solid var(--border-color);
+        }
+
+        .service-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 15px 30px rgba(0, 0, 0, 0.3);
+            border-color: var(--primary);
+        }
+
+        .service-icon {
+            font-size: 2.5rem;
+            color: var(--secondary);
+            margin-bottom: 1.5rem;
+        }
+
+        .service-card h3 {
+            font-size: 1.5rem;
+            margin-bottom: 1rem;
+        }
+
+        /* Pricing Section */
+        .pricing-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+            gap: 2rem;
+        }
+
+        .pricing-card {
+            background-color: var(--card-bg);
+            border-radius: 10px;
+            padding: 2.5rem 2rem;
+            text-align: center;
+            position: relative;
+            overflow: hidden;
+            border: 1px solid var(--border-color);
+        }
+
+        .pricing-card.featured {
+            border-color: var(--primary);
+            transform: scale(1.05);
+        }
+
+        .pricing-card.featured::before {
+            content: 'POPULAR';
+            position: absolute;
+            top: 20px;
+            right: -35px;
+            background: var(--gradient);
+            color: white;
+            padding: 5px 40px;
+            transform: rotate(45deg);
+            font-size: 0.8rem;
+            font-weight: 600;
+        }
+
+        .price {
+            font-size: 3rem;
+            font-weight: 700;
+            margin: 1.5rem 0;
+            color: var(--secondary);
+        }
+
+        .price span {
+            font-size: 1rem;
+            color: var(--text-muted);
+        }
+
+        .pricing-features {
+            list-style: none;
+            margin: 2rem 0;
+            text-align: left;
+        }
+
+        .pricing-features li {
+            margin-bottom: 0.8rem;
+            padding-left: 1.5rem;
+            position: relative;
+        }
+
+        .pricing-features li::before {
+            content: '✓';
+            position: absolute;
+            left: 0;
+            color: var(--success);
+            font-weight: bold;
+        }
+
+        /* Contact Form */
+        .contact-container {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 4rem;
+            align-items: center;
+        }
+
+        .contact-form {
+            background-color: var(--card-bg);
+            border-radius: 10px;
+            padding: 2.5rem;
+            border: 1px solid var(--border-color);
+        }
+
+        .form-group {
+            margin-bottom: 1.5rem;
+        }
+
+        .form-group label {
+            display: block;
+            margin-bottom: 0.5rem;
+            font-weight: 500;
+            color: var(--text-light);
+        }
+
+        .form-control {
+            width: 100%;
+            padding: 1rem;
+            background-color: rgba(255, 255, 255, 0.05);
+            border: 1px solid var(--border-color);
+            border-radius: 5px;
+            color: var(--text-light);
+            font-family: 'Poppins', sans-serif;
+            transition: border-color 0.3s;
+        }
+
+        .form-control:focus {
+            outline: none;
+            border-color: var(--primary);
+        }
+
+        textarea.form-control {
+            min-height: 150px;
+            resize: vertical;
+        }
+
+        /* Footer */
+        footer {
+            background-color: var(--darker-bg);
+            padding: 4rem 0 2rem;
+            border-top: 1px solid var(--border-color);
+        }
+
+        .footer-content {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 2rem;
+            margin-bottom: 3rem;
+        }
+
+        .footer-logo {
+            font-size: 1.8rem;
+            font-weight: 700;
+            color: white;
+            margin-bottom: 1rem;
+            display: inline-block;
+        }
+
+        .footer-links h4 {
+            font-size: 1.2rem;
+            margin-bottom: 1.5rem;
+            position: relative;
+            padding-bottom: 0.5rem;
+        }
+
+        .footer-links h4::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 40px;
+            height: 2px;
+            background: var(--gradient);
+        }
+
+        .footer-links ul {
+            list-style: none;
+        }
+
+        .footer-links li {
+            margin-bottom: 0.8rem;
+        }
+
+        .footer-links a {
+            color: var(--text-muted);
+            text-decoration: none;
+            transition: color 0.3s;
+        }
+
+        .footer-links a:hover {
+            color: var(--secondary);
+        }
+
+        .social-icons {
+            display: flex;
+            gap: 1rem;
+            margin-top: 1.5rem;
+        }
+
+        .social-icons a {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            width: 40px;
+            height: 40px;
+            background-color: var(--card-bg);
+            color: var(--text-light);
+            border-radius: 50%;
+            transition: all 0.3s;
+            text-decoration: none;
+        }
+
+        .social-icons a:hover {
+            background: var(--gradient);
+            transform: translateY(-3px);
+        }
+
+        .copyright {
+            text-align: center;
+            padding-top: 2rem;
+            border-top: 1px solid var(--border-color);
+            color: var(--text-muted);
+            font-size: 0.9rem;
+        }
+
+        /* Mobile Menu */
+        .mobile-menu-btn {
+            display: none;
+            background: none;
+            border: none;
+            color: var(--text-light);
+            font-size: 1.5rem;
+            cursor: pointer;
+        }
+
+        /* Responsive Design */
+        @media (max-width: 992px) {
+            .hero-content, .contact-container {
+                grid-template-columns: 1fr;
+            }
+            
+            .hero {
+                padding: 150px 0 80px;
+            }
+            
+            .hero-text h1 {
+                font-size: 2.5rem;
+            }
+        }
+
+        @media (max-width: 768px) {
+            nav ul {
+                display: none;
+            }
+            
+            .mobile-menu-btn {
+                display: block;
+            }
+            
+            .mobile-menu {
+                position: fixed;
+                top: 80px;
+                left: 0;
+                width: 100%;
+                background-color: var(--darker-bg);
+                padding: 2rem;
+                transform: translateY(-100%);
+                transition: transform 0.3s;
+                z-index: 999;
+                border-bottom: 1px solid var(--border-color);
+            }
+            
+            .mobile-menu.active {
+                transform: translateY(0);
+            }
+            
+            .mobile-menu ul {
+                list-style: none;
+            }
+            
+            .mobile-menu li {
+                margin-bottom: 1.5rem;
+            }
+            
+            .mobile-menu a {
+                color: var(--text-light);
+                text-decoration: none;
+                font-size: 1.2rem;
+                display: block;
+                padding: 0.5rem 0;
+            }
+            
+            .section-title h2 {
+                font-size: 2rem;
+            }
+        }
+
+        /* Additional Styling */
+        .badge {
+            display: inline-block;
+            background: var(--gradient);
+            color: white;
+            padding: 0.3rem 0.8rem;
+            border-radius: 50px;
+            font-size: 0.8rem;
+            font-weight: 600;
+            margin-right: 0.5rem;
+            margin-bottom: 0.5rem;
+        }
+
+        .stats {
+            display: flex;
+            justify-content: space-around;
+            margin-top: 3rem;
+            text-align: center;
+        }
+
+        .stat-item h3 {
+            font-size: 2.5rem;
+            color: var(--secondary);
+            margin-bottom: 0.5rem;
+        }
+
+        .ethical-note {
+            background-color: rgba(255, 183, 77, 0.1);
+            border-left: 4px solid var(--warning);
+            padding: 1.5rem;
+            margin: 2rem 0;
+            border-radius: 0 5px 5px 0;
+        }
+
+        .ethical-note h4 {
+            color: var(--warning);
+            margin-bottom: 0.5rem;
         }
     </style>
 </head>
 <body>
+    <!-- Header & Navigation -->
+    <header>
+        <div class="container nav-container">
+            <a href="#" class="logo">
+                <i class="fas fa-cogs"></i> Engineering<span>Mentor</span>
+            </a>
+            
+            <button class="mobile-menu-btn" id="mobileMenuBtn">
+                <i class="fas fa-bars"></i>
+            </button>
+            
+            <nav id="desktopNav">
+                <ul>
+                    <li><a href="#home">Home</a></li>
+                    <li><a href="#services">Services</a></li>
+                    <li><a href="#focus">Focus Areas</a></li>
+                    <li><a href="#pricing">Pricing</a></li>
+                    <li><a href="#contact">Contact</a></li>
+                </ul>
+            </nav>
+            
+            <a href="#contact" class="cta-button">Get Help Now</a>
+        </div>
+        
+        <!-- Mobile Menu -->
+        <div class="mobile-menu" id="mobileMenu">
+            <ul>
+                <li><a href="#home">Home</a></li>
+                <li><a href="#services">Services</a></li>
+                <li><a href="#focus">Focus Areas</a></li>
+                <li><a href="#pricing">Pricing</a></li>
+                <li><a href="#contact">Contact</a></li>
+            </ul>
+        </div>
+    </header>
 
-<div class="container">
-    <h2>Engineering Project Assistance</h2>
-    <p>Submit your project request below. We will contact you via email.</p>
+    <!-- Hero Section -->
+    <section class="hero" id="home">
+        <div class="container hero-content">
+            <div class="hero-text">
+                <h1>Expert Mentoring for Engineering Projects</h1>
+                <p>Professional guidance, tutoring, and consultations for Electrical Engineering, Mechatronics, and Electronics students across South Africa. We help you understand concepts, debug projects, and achieve academic excellence.</p>
+                
+                <div class="ethical-note">
+                    <h4><i class="fas fa-shield-alt"></i> Ethical & Legal Compliance</h4>
+                    <p>We provide guidance and mentorship - NOT completed assignments. Our services comply with university academic integrity policies.</p>
+                </div>
+                
+                <a href="#contact" class="cta-button">Start Your Project <i class="fas fa-arrow-right"></i></a>
+            </div>
+            
+            <div class="hero-image">
+                <img src="https://images.unsplash.com/photo-1620712943543-bcc4688e7485?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&q=80" alt="Engineering Project Mentorship">
+            </div>
+        </div>
+    </section>
 
-    <form action="https://formsubmit.co/thabang.lesekele95@outlook.com" method="POST">
-        <input type="hidden" name="_subject" value="New Engineering Project Request">
-        <input type="hidden" name="_template" value="table">
-        <input type="hidden" name="_captcha" value="false">
+    <!-- Services Section -->
+    <section id="services">
+        <div class="container">
+            <div class="section-title">
+                <h2>Our Services</h2>
+                <p>Tailored assistance for your engineering project needs</p>
+            </div>
+            
+            <div class="services-grid">
+                <div class="service-card">
+                    <div class="service-icon">
+                        <i class="fas fa-video"></i>
+                    </div>
+                    <h3>Basic Consultation</h3>
+                    <p>One-on-one video call or chat sessions to discuss your project challenges, clarify concepts, and plan your approach.</p>
+                    <div class="badge">R100-200/hour</div>
+                </div>
+                
+                <div class="service-card">
+                    <div class="service-icon">
+                        <i class="fas fa-file-alt"></i>
+                    </div>
+                    <h3>Project Review</h3>
+                    <p>Detailed feedback on your project drafts, code, or designs with actionable recommendations for improvement.</p>
+                    <div class="badge">R300-500/project</div>
+                </div>
+                
+                <div class="service-card">
+                    <div class="service-icon">
+                        <i class="fas fa-tasks"></i>
+                    </div>
+                    <h3>Full Guidance Package</h3>
+                    <p>Comprehensive support through multiple sessions covering all phases of your project from conception to completion.</p>
+                    <div class="badge">R800-1500/package</div>
+                </div>
+            </div>
+        </div>
+    </section>
 
-        <label>Full Name</label>
-        <input type="text" name="Name" required>
+    <!-- Focus Areas Section -->
+    <section id="focus" style="background-color: var(--darker-bg);">
+        <div class="container">
+            <div class="section-title">
+                <h2>Focus Areas</h2>
+                <p>Specialized expertise in key engineering disciplines</p>
+            </div>
+            
+            <div class="services-grid">
+                <div class="service-card">
+                    <h3><i class="fas fa-bolt" style="color: var(--secondary); margin-right: 10px;"></i> Electrical Engineering</h3>
+                    <p>Circuit design, power systems, signal processing, and electrical machine analysis using MATLAB, Simulink, and other industry tools.</p>
+                </div>
+                
+                <div class="service-card">
+                    <h3><i class="fas fa-robot" style="color: var(--secondary); margin-right: 10px;"></i> Mechatronics</h3>
+                    <p>Robotics, automation, control systems, and embedded systems integration with practical applications and simulation.</p>
+                </div>
+                
+                <div class="service-card">
+                    <h3><i class="fas fa-microchip" style="color: var(--secondary); margin-right: 10px;"></i> Electronics</h3>
+                    <p>PCB design, embedded systems, microcontroller programming (Arduino, Raspberry Pi), and electronic circuit analysis.</p>
+                </div>
+            </div>
+            
+            <div style="text-align: center; margin-top: 3rem;">
+                <h3>Software & Tools We Master</h3>
+                <div style="display: flex; flex-wrap: wrap; justify-content: center; gap: 1rem; margin-top: 1.5rem;">
+                    <span class="badge">MATLAB/Simulink</span>
+                    <span class="badge">AutoCAD</span>
+                    <span class="badge">Arduino</span>
+                    <span class="badge">LTspice</span>
+                    <span class="badge">SolidWorks</span>
+                    <span class="badge">Python</span>
+                    <span class="badge">C/C++</span>
+                    <span class="badge">PLC Programming</span>
+                </div>
+            </div>
+        </div>
+    </section>
 
-        <label>Email Address</label>
-        <input type="email" name="Email" required>
+    <!-- Pricing Section -->
+    <section id="pricing">
+        <div class="container">
+            <div class="section-title">
+                <h2>Pricing Plans</h2>
+                <p>Affordable options tailored for South African students</p>
+            </div>
+            
+            <div class="pricing-grid">
+                <div class="pricing-card">
+                    <h3>Basic Consultation</h3>
+                    <div class="price">R150<span>/hour</span></div>
+                    <p>Perfect for quick questions and concept clarification</p>
+                    <ul class="pricing-features">
+                        <li>1-hour video/chat session</li>
+                        <li>Immediate assistance</li>
+                        <li>Concept explanation</li>
+                        <li>Problem-solving guidance</li>
+                    </ul>
+                    <a href="#contact" class="cta-button">Book Session</a>
+                </div>
+                
+                <div class="pricing-card featured">
+                    <h3>Project Review</h3>
+                    <div class="price">R400<span>/project</span></div>
+                    <p>Most popular for ongoing project support</p>
+                    <ul class="pricing-features">
+                        <li>Detailed project analysis</li>
+                        <li>Code/draft review with feedback</li>
+                        <li>3-day turnaround</li>
+                        <li>Follow-up Q&A session</li>
+                        <li>Actionable recommendations</li>
+                    </ul>
+                    <a href="#contact" class="cta-button">Get Review</a>
+                </div>
+                
+                <div class="pricing-card">
+                    <h3>Full Guidance</h3>
+                    <div class="price">R1200<span>/package</span></div>
+                    <p>Complete support from start to finish</p>
+                    <ul class="pricing-features">
+                        <li>Multiple sessions (4+ hours)</li>
+                        <li>End-to-end project guidance</li>
+                        <li>Priority support</li>
+                        <li>Software tool assistance</li>
+                        <li>Final review & optimization</li>
+                    </ul>
+                    <a href="#contact" class="cta-button">Start Package</a>
+                </div>
+            </div>
+            
+            <div class="stats">
+                <div class="stat-item">
+                    <h3>50+</h3>
+                    <p>Students Helped</p>
+                </div>
+                <div class="stat-item">
+                    <h3>20%</h3>
+                    <p>Average Grade Improvement</p>
+                </div>
+                <div class="stat-item">
+                    <h3>24h</h3>
+                    <p>Response Time</p>
+                </div>
+                <div class="stat-item">
+                    <h3>5.0</h3>
+                    <p>Average Rating</p>
+                </div>
+            </div>
+        </div>
+    </section>
 
-        <label>University</label>
-        <input type="text" name="University" required>
+    <!-- Contact Form -->
+    <section id="contact">
+        <div class="container">
+            <div class="section-title">
+                <h2>Get Expert Help</h2>
+                <p>Tell us about your project and we'll respond within 24 hours</p>
+            </div>
+            
+            <div class="contact-container">
+                <div class="contact-info">
+                    <h3>Why Choose Engineering Mentor Pro?</h3>
+                    <ul style="list-style: none; margin-top: 1.5rem;">
+                        <li style="margin-bottom: 1rem; padding-left: 1.5rem; position: relative;">
+                            <i class="fas fa-check" style="color: var(--success); position: absolute; left: 0;"></i>
+                            <strong>Personalized Help:</strong> One-on-one mentorship tailored to your specific needs
+                        </li>
+                        <li style="margin-bottom: 1rem; padding-left: 1.5rem; position: relative;">
+                            <i class="fas fa-check" style="color: var(--success); position: absolute; left: 0;"></i>
+                            <strong>Quick Turnaround:</strong> We understand university deadlines and work accordingly
+                        </li>
+                        <li style="margin-bottom: 1rem; padding-left: 1.5rem; position: relative;">
+                            <i class="fas fa-check" style="color: var(--success); position: absolute; left: 0;"></i>
+                            <strong>Expert Guidance:</strong> Mentors with degrees and industry experience
+                        </li>
+                        <li style="margin-bottom: 1rem; padding-left: 1.5rem; position: relative;">
+                            <i class="fas fa-check" style="color: var(--success); position: absolute; left: 0;"></i>
+                            <strong>South African Focus:</strong> Understanding of local university requirements and challenges
+                        </li>
+                    </ul>
+                    
+                    <h3 style="margin-top: 2rem;">Target Universities</h3>
+                    <div style="display: flex; flex-wrap: wrap; gap: 0.5rem; margin-top: 1rem;">
+                        <span class="badge">University of KwaZulu-Natal (UKZN)</span>
+                        <span class="badge">Durban University of Technology (DUT)</span>
+                        <span class="badge">Mangosuthu University of Technology (MUT)</span>
+                        <span class="badge">University of Cape Town (UCT)</span>
+                        <span class="badge">University of the Witwatersrand (Wits)</span>
+                        <span class="badge">Stellenbosch University</span>
+                    </div>
+                </div>
+                
+                <div class="contact-form">
+                    <form action="https://formsubmit.co/thabang.lesekele95@outlook.com" method="POST">
+                        <input type="hidden" name="_subject" value="New Engineering Project Request">
+                        <input type="hidden" name="_template" value="table">
+                        <input type="hidden" name="_captcha" value="false">
+                        
+                        <div class="form-group">
+                            <label for="name">Full Name</label>
+                            <input type="text" id="name" name="Name" class="form-control" required>
+                        </div>
+                        
+                        <div class="form-group">
+                            <label for="email">Email Address</label>
+                            <input type="email" id="email" name="Email" class="form-control" required>
+                        </div>
+                        
+                        <div class="form-group">
+                            <label for="university">University</label>
+                            <input type="text" id="university" name="University" class="form-control" required>
+                        </div>
+                        
+                        <div class="form-group">
+                            <label for="service">Service Needed</label>
+                            <select id="service" name="Service" class="form-control" required>
+                                <option value="">Select a service</option>
+                                <option value="Basic Consultation">Basic Consultation (R100-200/hour)</option>
+                                <option value="Project Review">Project Review (R300-500)</option>
+                                <option value="Full Guidance Package">Full Guidance Package (R800-1500)</option>
+                            </select>
+                        </div>
+                        
+                        <div class="form-group">
+                            <label for="message">Project Details / Request</label>
+                            <textarea id="message" name="Message" class="form-control" required placeholder="Describe your project, course, deadline, and specific areas where you need help..."></textarea>
+                        </div>
+                        
+                        <button type="submit" class="cta-button" style="width: 100%;">Send Request <i class="fas fa-paper-plane"></i></button>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </section>
 
-        <label>Project / Request</label>
-        <textarea name="Message" rows="6" required></textarea>
+    <!-- Footer -->
+    <footer>
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-about">
+                    <a href="#" class="footer-logo">Engineering<span>Mentor</span></a>
+                    <p>Providing ethical, professional mentoring for engineering students across South Africa since 2023.</p>
+                    <div class="social-icons">
+                        <a href="#"><i class="fab fa-facebook-f"></i></a>
+                        <a href="#"><i class="fab fa-instagram"></i></a>
+                        <a href="#"><i class="fab fa-linkedin-in"></i></a>
+                        <a href="#"><i class="fab fa-twitter"></i></a>
+                        <a href="#"><i class="fab fa-whatsapp"></i></a>
+                    </div>
+                </div>
+                
+                <div class="footer-links">
+                    <h4>Quick Links</h4>
+                    <ul>
+                        <li><a href="#home">Home</a></li>
+                        <li><a href="#services">Services</a></li>
+                        <li><a href="#focus">Focus Areas</a></li>
+                        <li><a href="#pricing">Pricing</a></li>
+                        <li><a href="#contact">Contact</a></li>
+                    </ul>
+                </div>
+                
+                <div class="footer-links">
+                    <h4>Services</h4>
+                    <ul>
+                        <li><a href="#services">Basic Consultation</a></li>
+                        <li><a href="#services">Project Review</a></li>
+                        <li><a href="#services">Full Guidance Package</a></li>
+                        <li><a href="#contact">Custom Solutions</a></li>
+                    </ul>
+                </div>
+                
+                <div class="footer-links">
+                    <h4>Contact Info</h4>
+                    <ul>
+                        <li><i class="fas fa-envelope" style="margin-right: 10px;"></i> help@engineeringmentor.co.za</li>
+                        <li><i class="fas fa-phone" style="margin-right: 10px;"></i> +27 72 123 4567</li>
+                        <li><i class="fas fa-map-marker-alt" style="margin-right: 10px;"></i> Richards Bay, KwaZulu-Natal</li>
+                        <li><i class="fas fa-clock" style="margin-right: 10px;"></i> Mon-Fri: 9AM-6PM | Sat: 10AM-2PM</li>
+                    </ul>
+                </div>
+            </div>
+            
+            <div class="copyright">
+                <p>&copy; 2023 Engineering Mentor Pro. All rights reserved. | Ethical mentorship compliant with university academic integrity policies.</p>
+                <p style="margin-top: 0.5rem; font-size: 0.8rem;">Disclaimer: We provide guidance and tutoring services only. We do not complete assignments for students.</p>
+            </div>
+        </div>
+    </footer>
 
-        <button type="submit">Send Request</button>
-    </form>
-</div>
-
+    <script>
+        // Mobile menu toggle
+        const mobileMenuBtn = document.getElementById('mobileMenuBtn');
+        const mobileMenu = document.getElementById('mobileMenu');
+        
+        mobileMenuBtn.addEventListener('click', () => {
+            mobileMenu.classList.toggle('active');
+            mobileMenuBtn.innerHTML = mobileMenu.classList.contains('active') 
+                ? '<i class="fas fa-times"></i>' 
+                : '<i class="fas fa-bars"></i>';
+        });
+        
+        // Close mobile menu when clicking a link
+        document.querySelectorAll('.mobile-menu a').forEach(link => {
+            link.addEventListener('click', () => {
+                mobileMenu.classList.remove('active');
+                mobileMenuBtn.innerHTML = '<i class="fas fa-bars"></i>';
+            });
+        });
+        
+        // Smooth scrolling for anchor links
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function(e) {
+                e.preventDefault();
+                
+                const targetId = this.getAttribute('href');
+                if(targetId === '#') return;
+                
+                const targetElement = document.querySelector(targetId);
+                if(targetElement) {
+                    window.scrollTo({
+                        top: targetElement.offsetTop - 100,
+                        behavior: 'smooth'
+                    });
+                }
+            });
+        });
+        
+        // Form submission handler
+        const contactForm = document.querySelector('.contact-form form');
+        if(contactForm) {
+            contactForm.addEventListener('submit', function(e) {
+                // You can add form validation here
+                const serviceSelect = document.getElementById('service');
+                if(serviceSelect && serviceSelect.value === '') {
+                    e.preventDefault();
+                    alert('Please select a service type.');
+                    serviceSelect.focus();
+                }
+            });
+        }
+    </script>
 </body>
 </html>
