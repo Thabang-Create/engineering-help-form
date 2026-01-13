@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Engineering Mentor Pro | Expert Project Guidance</title>
+    <title>Sage Mode Engineering | Expert Project Guidance</title>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&family=Roboto+Mono:wght@300;400;500&display=swap" rel="stylesheet">
     <style>
@@ -34,6 +34,7 @@
             color: var(--text-light);
             line-height: 1.6;
             overflow-x: hidden;
+            padding-top: 70px; /* Add padding to account for fixed header */
         }
 
         h1, h2, h3, h4 {
@@ -49,38 +50,39 @@
             padding: 0 20px;
         }
 
-        /* Header & Navigation */
+        /* Header & Navigation - Made Smaller */
         header {
             background-color: rgba(10, 15, 26, 0.95);
             backdrop-filter: blur(10px);
             position: fixed;
+            top: 0;
             width: 100%;
             z-index: 1000;
             border-bottom: 1px solid var(--border-color);
-            padding: 1rem 0;
+            padding: 0.7rem 0;
+            height: 70px;
         }
 
         .nav-container {
             display: flex;
             justify-content: space-between;
             align-items: center;
+            height: 100%;
         }
 
         .logo {
-            font-size: 1.8rem;
+            font-size: 1.6rem;
             font-weight: 700;
             color: white;
             display: flex;
             align-items: center;
+            text-decoration: none;
         }
 
         .logo i {
             color: var(--secondary);
             margin-right: 10px;
-        }
-
-        .logo span {
-            color: var(--primary);
+            font-size: 1.4rem;
         }
 
         nav ul {
@@ -89,13 +91,14 @@
         }
 
         nav li {
-            margin-left: 2rem;
+            margin-left: 1.8rem;
         }
 
         nav a {
             color: var(--text-light);
             text-decoration: none;
             font-weight: 500;
+            font-size: 0.95rem;
             transition: color 0.3s;
             padding: 0.5rem 0;
             position: relative;
@@ -124,9 +127,10 @@
             background: var(--gradient);
             color: white;
             border: none;
-            padding: 0.8rem 1.8rem;
+            padding: 0.6rem 1.5rem;
             border-radius: 50px;
             font-weight: 600;
+            font-size: 0.9rem;
             cursor: pointer;
             transition: transform 0.3s, box-shadow 0.3s;
             text-decoration: none;
@@ -138,9 +142,9 @@
             box-shadow: 0 10px 20px rgba(74, 111, 255, 0.3);
         }
 
-        /* Hero Section */
+        /* Hero Section - Adjusted for smaller header */
         .hero {
-            padding: 180px 0 100px;
+            padding: 60px 0 80px;
             background: linear-gradient(135deg, var(--darker-bg) 0%, var(--dark-bg) 100%);
             position: relative;
             overflow: hidden;
@@ -164,7 +168,7 @@
         }
 
         .hero-text h1 {
-            font-size: 3.2rem;
+            font-size: 2.8rem;
             margin-bottom: 1.5rem;
             background: linear-gradient(to right, var(--text-light), var(--secondary));
             -webkit-background-clip: text;
@@ -173,7 +177,7 @@
         }
 
         .hero-text p {
-            font-size: 1.2rem;
+            font-size: 1.1rem;
             color: var(--text-muted);
             margin-bottom: 2rem;
         }
@@ -191,7 +195,7 @@
 
         /* Sections */
         section {
-            padding: 100px 0;
+            padding: 80px 0;
         }
 
         .section-title {
@@ -200,7 +204,7 @@
         }
 
         .section-title h2 {
-            font-size: 2.5rem;
+            font-size: 2.3rem;
             display: inline-block;
             position: relative;
         }
@@ -220,46 +224,46 @@
         /* Services Section */
         .services-grid {
             display: grid;
-            grid-template-columns: repeat(auto-fill, minmax(350px, 1fr));
+            grid-template-columns: repeat(auto-fill, minmax(320px, 1fr));
             gap: 2rem;
         }
 
         .service-card {
             background-color: var(--card-bg);
             border-radius: 10px;
-            padding: 2rem;
+            padding: 1.8rem;
             transition: transform 0.3s, box-shadow 0.3s;
             border: 1px solid var(--border-color);
         }
 
         .service-card:hover {
-            transform: translateY(-10px);
+            transform: translateY(-8px);
             box-shadow: 0 15px 30px rgba(0, 0, 0, 0.3);
             border-color: var(--primary);
         }
 
         .service-icon {
-            font-size: 2.5rem;
+            font-size: 2.2rem;
             color: var(--secondary);
-            margin-bottom: 1.5rem;
+            margin-bottom: 1.2rem;
         }
 
         .service-card h3 {
-            font-size: 1.5rem;
-            margin-bottom: 1rem;
+            font-size: 1.4rem;
+            margin-bottom: 0.8rem;
         }
 
         /* Pricing Section */
         .pricing-grid {
             display: grid;
-            grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
-            gap: 2rem;
+            grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+            gap: 1.8rem;
         }
 
         .pricing-card {
             background-color: var(--card-bg);
             border-radius: 10px;
-            padding: 2.5rem 2rem;
+            padding: 2.2rem 1.8rem;
             text-align: center;
             position: relative;
             overflow: hidden;
@@ -268,44 +272,52 @@
 
         .pricing-card.featured {
             border-color: var(--primary);
-            transform: scale(1.05);
+            transform: scale(1.03);
         }
 
         .pricing-card.featured::before {
             content: 'POPULAR';
             position: absolute;
-            top: 20px;
+            top: 18px;
             right: -35px;
             background: var(--gradient);
             color: white;
-            padding: 5px 40px;
+            padding: 4px 40px;
             transform: rotate(45deg);
-            font-size: 0.8rem;
+            font-size: 0.75rem;
             font-weight: 600;
         }
 
         .price {
-            font-size: 3rem;
+            font-size: 2.5rem;
             font-weight: 700;
-            margin: 1.5rem 0;
+            margin: 1.2rem 0;
             color: var(--secondary);
         }
 
         .price span {
-            font-size: 1rem;
+            font-size: 0.9rem;
             color: var(--text-muted);
+        }
+
+        .price-subtext {
+            font-size: 0.85rem;
+            color: var(--text-muted);
+            margin-top: -0.5rem;
+            margin-bottom: 1rem;
         }
 
         .pricing-features {
             list-style: none;
-            margin: 2rem 0;
+            margin: 1.8rem 0;
             text-align: left;
         }
 
         .pricing-features li {
-            margin-bottom: 0.8rem;
+            margin-bottom: 0.7rem;
             padding-left: 1.5rem;
             position: relative;
+            font-size: 0.95rem;
         }
 
         .pricing-features li::before {
@@ -320,19 +332,19 @@
         .contact-container {
             display: grid;
             grid-template-columns: 1fr 1fr;
-            gap: 4rem;
+            gap: 3.5rem;
             align-items: center;
         }
 
         .contact-form {
             background-color: var(--card-bg);
             border-radius: 10px;
-            padding: 2.5rem;
+            padding: 2.2rem;
             border: 1px solid var(--border-color);
         }
 
         .form-group {
-            margin-bottom: 1.5rem;
+            margin-bottom: 1.3rem;
         }
 
         .form-group label {
@@ -340,16 +352,18 @@
             margin-bottom: 0.5rem;
             font-weight: 500;
             color: var(--text-light);
+            font-size: 0.95rem;
         }
 
         .form-control {
             width: 100%;
-            padding: 1rem;
+            padding: 0.9rem;
             background-color: rgba(255, 255, 255, 0.05);
             border: 1px solid var(--border-color);
             border-radius: 5px;
             color: var(--text-light);
             font-family: 'Poppins', sans-serif;
+            font-size: 0.95rem;
             transition: border-color 0.3s;
         }
 
@@ -359,35 +373,36 @@
         }
 
         textarea.form-control {
-            min-height: 150px;
+            min-height: 140px;
             resize: vertical;
         }
 
         /* Footer */
         footer {
             background-color: var(--darker-bg);
-            padding: 4rem 0 2rem;
+            padding: 3rem 0 2rem;
             border-top: 1px solid var(--border-color);
         }
 
         .footer-content {
             display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-            gap: 2rem;
-            margin-bottom: 3rem;
+            grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+            gap: 1.8rem;
+            margin-bottom: 2.5rem;
         }
 
         .footer-logo {
-            font-size: 1.8rem;
+            font-size: 1.6rem;
             font-weight: 700;
             color: white;
             margin-bottom: 1rem;
             display: inline-block;
+            text-decoration: none;
         }
 
         .footer-links h4 {
-            font-size: 1.2rem;
-            margin-bottom: 1.5rem;
+            font-size: 1.1rem;
+            margin-bottom: 1.2rem;
             position: relative;
             padding-bottom: 0.5rem;
         }
@@ -397,7 +412,7 @@
             position: absolute;
             bottom: 0;
             left: 0;
-            width: 40px;
+            width: 35px;
             height: 2px;
             background: var(--gradient);
         }
@@ -407,7 +422,8 @@
         }
 
         .footer-links li {
-            margin-bottom: 0.8rem;
+            margin-bottom: 0.7rem;
+            font-size: 0.95rem;
         }
 
         .footer-links a {
@@ -422,21 +438,22 @@
 
         .social-icons {
             display: flex;
-            gap: 1rem;
-            margin-top: 1.5rem;
+            gap: 0.9rem;
+            margin-top: 1.2rem;
         }
 
         .social-icons a {
             display: inline-flex;
             align-items: center;
             justify-content: center;
-            width: 40px;
-            height: 40px;
+            width: 36px;
+            height: 36px;
             background-color: var(--card-bg);
             color: var(--text-light);
             border-radius: 50%;
             transition: all 0.3s;
             text-decoration: none;
+            font-size: 0.9rem;
         }
 
         .social-icons a:hover {
@@ -446,10 +463,10 @@
 
         .copyright {
             text-align: center;
-            padding-top: 2rem;
+            padding-top: 1.8rem;
             border-top: 1px solid var(--border-color);
             color: var(--text-muted);
-            font-size: 0.9rem;
+            font-size: 0.85rem;
         }
 
         /* Mobile Menu */
@@ -458,8 +475,25 @@
             background: none;
             border: none;
             color: var(--text-light);
-            font-size: 1.5rem;
+            font-size: 1.4rem;
             cursor: pointer;
+        }
+
+        /* Global Badge */
+        .global-badge {
+            display: inline-flex;
+            align-items: center;
+            background: linear-gradient(135deg, #6A5AF9, #4A6FFF);
+            color: white;
+            padding: 0.5rem 1rem;
+            border-radius: 50px;
+            font-size: 0.85rem;
+            font-weight: 600;
+            margin-bottom: 1rem;
+        }
+
+        .global-badge i {
+            margin-right: 0.5rem;
         }
 
         /* Responsive Design */
@@ -469,16 +503,33 @@
             }
             
             .hero {
-                padding: 150px 0 80px;
+                padding: 50px 0 70px;
             }
             
             .hero-text h1 {
-                font-size: 2.5rem;
+                font-size: 2.3rem;
+            }
+            
+            section {
+                padding: 70px 0;
             }
         }
 
         @media (max-width: 768px) {
+            body {
+                padding-top: 65px;
+            }
+            
+            header {
+                height: 65px;
+                padding: 0.6rem 0;
+            }
+            
             nav ul {
+                display: none;
+            }
+            
+            .nav-container .cta-button {
                 display: none;
             }
             
@@ -488,11 +539,11 @@
             
             .mobile-menu {
                 position: fixed;
-                top: 80px;
+                top: 65px;
                 left: 0;
                 width: 100%;
                 background-color: var(--darker-bg);
-                padding: 2rem;
+                padding: 1.5rem;
                 transform: translateY(-100%);
                 transition: transform 0.3s;
                 z-index: 999;
@@ -508,19 +559,33 @@
             }
             
             .mobile-menu li {
-                margin-bottom: 1.5rem;
+                margin-bottom: 1.2rem;
             }
             
             .mobile-menu a {
                 color: var(--text-light);
                 text-decoration: none;
-                font-size: 1.2rem;
+                font-size: 1.1rem;
                 display: block;
                 padding: 0.5rem 0;
             }
             
+            .mobile-cta {
+                display: block;
+                text-align: center;
+                margin-top: 1.5rem;
+            }
+            
             .section-title h2 {
-                font-size: 2rem;
+                font-size: 1.9rem;
+            }
+            
+            .pricing-card.featured {
+                transform: none;
+            }
+            
+            .logo {
+                font-size: 1.4rem;
             }
         }
 
@@ -529,9 +594,9 @@
             display: inline-block;
             background: var(--gradient);
             color: white;
-            padding: 0.3rem 0.8rem;
+            padding: 0.25rem 0.7rem;
             border-radius: 50px;
-            font-size: 0.8rem;
+            font-size: 0.75rem;
             font-weight: 600;
             margin-right: 0.5rem;
             margin-bottom: 0.5rem;
@@ -540,27 +605,49 @@
         .stats {
             display: flex;
             justify-content: space-around;
-            margin-top: 3rem;
+            margin-top: 2.5rem;
             text-align: center;
+            flex-wrap: wrap;
+            gap: 1.2rem;
         }
 
         .stat-item h3 {
-            font-size: 2.5rem;
+            font-size: 2.2rem;
             color: var(--secondary);
             margin-bottom: 0.5rem;
+        }
+
+        .stat-item p {
+            font-size: 0.9rem;
         }
 
         .ethical-note {
             background-color: rgba(255, 183, 77, 0.1);
             border-left: 4px solid var(--warning);
-            padding: 1.5rem;
-            margin: 2rem 0;
+            padding: 1.2rem;
+            margin: 1.8rem 0;
             border-radius: 0 5px 5px 0;
         }
 
         .ethical-note h4 {
             color: var(--warning);
             margin-bottom: 0.5rem;
+            font-size: 1rem;
+        }
+
+        .worldwide-banner {
+            background: linear-gradient(135deg, rgba(74, 111, 255, 0.1), rgba(106, 90, 249, 0.1));
+            border: 1px solid var(--primary);
+            border-radius: 10px;
+            padding: 1.2rem;
+            margin: 1.8rem 0;
+            text-align: center;
+        }
+
+        .worldwide-banner h4 {
+            color: var(--secondary);
+            margin-bottom: 0.5rem;
+            font-size: 1.1rem;
         }
     </style>
 </head>
@@ -569,7 +656,7 @@
     <header>
         <div class="container nav-container">
             <a href="#" class="logo">
-                <i class="fas fa-cogs"></i> Engineering<span>Mentor</span>
+                <i class="fas fa-cogs"></i> Sage Mode Engineering
             </a>
             
             <button class="mobile-menu-btn" id="mobileMenuBtn">
@@ -598,6 +685,9 @@
                 <li><a href="#pricing">Pricing</a></li>
                 <li><a href="#contact">Contact</a></li>
             </ul>
+            <div class="mobile-cta">
+                <a href="#contact" class="cta-button">Get Help Now</a>
+            </div>
         </div>
     </header>
 
@@ -605,19 +695,28 @@
     <section class="hero" id="home">
         <div class="container hero-content">
             <div class="hero-text">
-                <h1>Expert Mentoring for Engineering Projects</h1>
-                <p>Professional guidance, tutoring, and consultations for Electrical Engineering, Mechatronics, and Electronics students across South Africa. We help you understand concepts, debug projects, and achieve academic excellence.</p>
+                <div class="global-badge">
+                    <i class="fas fa-globe-americas"></i> Global Online Mentorship
+                </div>
+                
+                <h1>Expert Engineering Mentorship Worldwide</h1>
+                <p>Professional guidance, tutoring, and consultations for Electrical Engineering, Mechatronics, and Electronics students across the globe. We help you understand concepts, debug projects, and achieve academic excellence.</p>
+                
+                <div class="worldwide-banner">
+                    <h4><i class="fas fa-laptop-house"></i> 100% Online Services</h4>
+                    <p>Work with expert mentors from anywhere in the world - no geographical limitations!</p>
+                </div>
                 
                 <div class="ethical-note">
                     <h4><i class="fas fa-shield-alt"></i> Ethical & Legal Compliance</h4>
-                    <p>We provide guidance and mentorship - NOT completed assignments. Our services comply with university academic integrity policies.</p>
+                    <p>We provide guidance and mentorship - NOT completed assignments. Our services comply with university academic integrity policies worldwide.</p>
                 </div>
                 
                 <a href="#contact" class="cta-button">Start Your Project <i class="fas fa-arrow-right"></i></a>
             </div>
             
             <div class="hero-image">
-                <img src="https://images.unsplash.com/photo-1620712943543-bcc4688e7485?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&q=80" alt="Engineering Project Mentorship">
+                <img src="https://images.unsplash.com/photo-1620712943543-bcc4688e7485?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&q=80" alt="Global Engineering Project Mentorship">
             </div>
         </div>
     </section>
@@ -637,7 +736,7 @@
                     </div>
                     <h3>Basic Consultation</h3>
                     <p>One-on-one video call or chat sessions to discuss your project challenges, clarify concepts, and plan your approach.</p>
-                    <div class="badge">R100-200/hour</div>
+                    <div class="badge">R150/hour | ≈$8 USD</div>
                 </div>
                 
                 <div class="service-card">
@@ -646,7 +745,7 @@
                     </div>
                     <h3>Project Review</h3>
                     <p>Detailed feedback on your project drafts, code, or designs with actionable recommendations for improvement.</p>
-                    <div class="badge">R300-500/project</div>
+                    <div class="badge">R400/project | ≈$22 USD</div>
                 </div>
                 
                 <div class="service-card">
@@ -655,7 +754,7 @@
                     </div>
                     <h3>Full Guidance Package</h3>
                     <p>Comprehensive support through multiple sessions covering all phases of your project from conception to completion.</p>
-                    <div class="badge">R800-1500/package</div>
+                    <div class="badge">R1200/package | ≈$65 USD</div>
                 </div>
             </div>
         </div>
@@ -686,9 +785,9 @@
                 </div>
             </div>
             
-            <div style="text-align: center; margin-top: 3rem;">
+            <div style="text-align: center; margin-top: 2.5rem;">
                 <h3>Software & Tools We Master</h3>
-                <div style="display: flex; flex-wrap: wrap; justify-content: center; gap: 1rem; margin-top: 1.5rem;">
+                <div style="display: flex; flex-wrap: wrap; justify-content: center; gap: 0.8rem; margin-top: 1.2rem;">
                     <span class="badge">MATLAB/Simulink</span>
                     <span class="badge">AutoCAD</span>
                     <span class="badge">Arduino</span>
@@ -707,19 +806,21 @@
         <div class="container">
             <div class="section-title">
                 <h2>Pricing Plans</h2>
-                <p>Affordable options tailored for South African students</p>
+                <p>Affordable global rates with USD equivalents</p>
             </div>
             
             <div class="pricing-grid">
                 <div class="pricing-card">
                     <h3>Basic Consultation</h3>
                     <div class="price">R150<span>/hour</span></div>
+                    <div class="price-subtext">≈ $8 USD / hour</div>
                     <p>Perfect for quick questions and concept clarification</p>
                     <ul class="pricing-features">
                         <li>1-hour video/chat session</li>
                         <li>Immediate assistance</li>
                         <li>Concept explanation</li>
                         <li>Problem-solving guidance</li>
+                        <li>Global timezone support</li>
                     </ul>
                     <a href="#contact" class="cta-button">Book Session</a>
                 </div>
@@ -727,6 +828,7 @@
                 <div class="pricing-card featured">
                     <h3>Project Review</h3>
                     <div class="price">R400<span>/project</span></div>
+                    <div class="price-subtext">≈ $22 USD / project</div>
                     <p>Most popular for ongoing project support</p>
                     <ul class="pricing-features">
                         <li>Detailed project analysis</li>
@@ -734,6 +836,7 @@
                         <li>3-day turnaround</li>
                         <li>Follow-up Q&A session</li>
                         <li>Actionable recommendations</li>
+                        <li>Global student support</li>
                     </ul>
                     <a href="#contact" class="cta-button">Get Review</a>
                 </div>
@@ -741,6 +844,7 @@
                 <div class="pricing-card">
                     <h3>Full Guidance</h3>
                     <div class="price">R1200<span>/package</span></div>
+                    <div class="price-subtext">≈ $65 USD / package</div>
                     <p>Complete support from start to finish</p>
                     <ul class="pricing-features">
                         <li>Multiple sessions (4+ hours)</li>
@@ -748,9 +852,15 @@
                         <li>Priority support</li>
                         <li>Software tool assistance</li>
                         <li>Final review & optimization</li>
+                        <li>24/7 email support</li>
                     </ul>
                     <a href="#contact" class="cta-button">Start Package</a>
                 </div>
+            </div>
+            
+            <div class="worldwide-banner" style="margin-top: 2.5rem;">
+                <h4><i class="fas fa-globe"></i> Serving Students Worldwide</h4>
+                <p>We work with students from universities across the globe including North America, Europe, Asia, Australia, and Africa. All services delivered online with flexible scheduling across timezones.</p>
             </div>
             
             <div class="stats">
@@ -767,8 +877,8 @@
                     <p>Response Time</p>
                 </div>
                 <div class="stat-item">
-                    <h3>5.0</h3>
-                    <p>Average Rating</p>
+                    <h3>15+</h3>
+                    <p>Countries Served</p>
                 </div>
             </div>
         </div>
@@ -784,7 +894,7 @@
             
             <div class="contact-container">
                 <div class="contact-info">
-                    <h3>Why Choose Engineering Mentor Pro?</h3>
+                    <h3>Why Choose Sage Mode Engineering?</h3>
                     <ul style="list-style: none; margin-top: 1.5rem;">
                         <li style="margin-bottom: 1rem; padding-left: 1.5rem; position: relative;">
                             <i class="fas fa-check" style="color: var(--success); position: absolute; left: 0;"></i>
@@ -800,18 +910,22 @@
                         </li>
                         <li style="margin-bottom: 1rem; padding-left: 1.5rem; position: relative;">
                             <i class="fas fa-check" style="color: var(--success); position: absolute; left: 0;"></i>
-                            <strong>South African Focus:</strong> Understanding of local university requirements and challenges
+                            <strong>Global Accessibility:</strong> Online services for students worldwide
                         </li>
                     </ul>
                     
-                    <h3 style="margin-top: 2rem;">Target Universities</h3>
+                    <h3 style="margin-top: 2rem;">Software Expertise</h3>
                     <div style="display: flex; flex-wrap: wrap; gap: 0.5rem; margin-top: 1rem;">
-                        <span class="badge">University of KwaZulu-Natal (UKZN)</span>
-                        <span class="badge">Durban University of Technology (DUT)</span>
-                        <span class="badge">Mangosuthu University of Technology (MUT)</span>
-                        <span class="badge">University of Cape Town (UCT)</span>
-                        <span class="badge">University of the Witwatersrand (Wits)</span>
-                        <span class="badge">Stellenbosch University</span>
+                        <span class="badge">MATLAB/Simulink</span>
+                        <span class="badge">AutoCAD Electrical</span>
+                        <span class="badge">Arduino IDE</span>
+                        <span class="badge">LTspice</span>
+                        <span class="badge">SolidWorks</span>
+                        <span class="badge">Python</span>
+                        <span class="badge">C/C++</span>
+                        <span class="badge">PLC Programming</span>
+                        <span class="badge">LabVIEW</span>
+                        <span class="badge">KiCad</span>
                     </div>
                 </div>
                 
@@ -832,17 +946,17 @@
                         </div>
                         
                         <div class="form-group">
-                            <label for="university">University</label>
-                            <input type="text" id="university" name="University" class="form-control" required>
+                            <label for="country">Country & Timezone</label>
+                            <input type="text" id="country" name="Country" class="form-control" required placeholder="e.g., USA (EST), Germany (CET), Australia (AEST)">
                         </div>
                         
                         <div class="form-group">
                             <label for="service">Service Needed</label>
                             <select id="service" name="Service" class="form-control" required>
                                 <option value="">Select a service</option>
-                                <option value="Basic Consultation">Basic Consultation (R100-200/hour)</option>
-                                <option value="Project Review">Project Review (R300-500)</option>
-                                <option value="Full Guidance Package">Full Guidance Package (R800-1500)</option>
+                                <option value="Basic Consultation">Basic Consultation (R150/hour | ≈$8 USD)</option>
+                                <option value="Project Review">Project Review (R400 | ≈$22 USD)</option>
+                                <option value="Full Guidance Package">Full Guidance Package (R1200 | ≈$65 USD)</option>
                             </select>
                         </div>
                         
@@ -863,8 +977,8 @@
         <div class="container">
             <div class="footer-content">
                 <div class="footer-about">
-                    <a href="#" class="footer-logo">Engineering<span>Mentor</span></a>
-                    <p>Providing ethical, professional mentoring for engineering students across South Africa since 2023.</p>
+                    <a href="#" class="footer-logo">Sage Mode Engineering</a>
+                    <p>Providing ethical, professional mentoring for engineering students worldwide since 2023.</p>
                     <div class="social-icons">
                         <a href="#"><i class="fab fa-facebook-f"></i></a>
                         <a href="#"><i class="fab fa-instagram"></i></a>
@@ -898,17 +1012,17 @@
                 <div class="footer-links">
                     <h4>Contact Info</h4>
                     <ul>
-                        <li><i class="fas fa-envelope" style="margin-right: 10px;"></i> help@engineeringmentor.co.za</li>
-                        <li><i class="fas fa-phone" style="margin-right: 10px;"></i> +27 72 123 4567</li>
-                        <li><i class="fas fa-map-marker-alt" style="margin-right: 10px;"></i> Richards Bay, KwaZulu-Natal</li>
-                        <li><i class="fas fa-clock" style="margin-right: 10px;"></i> Mon-Fri: 9AM-6PM | Sat: 10AM-2PM</li>
+                        <li><i class="fas fa-envelope" style="margin-right: 10px;"></i> thabang.lesekele95@outlook.com</li>
+                        <li><i class="fas fa-phone" style="margin-right: 10px;"></i> +27 63 142 3810</li>
+                        <li><i class="fas fa-map-marker-alt" style="margin-right: 10px;"></i> Online Services Worldwide</li>
+                        <li><i class="fas fa-clock" style="margin-right: 10px;"></i> 24/7 Support via Email</li>
                     </ul>
                 </div>
             </div>
             
             <div class="copyright">
-                <p>&copy; 2023 Engineering Mentor Pro. All rights reserved. | Ethical mentorship compliant with university academic integrity policies.</p>
-                <p style="margin-top: 0.5rem; font-size: 0.8rem;">Disclaimer: We provide guidance and tutoring services only. We do not complete assignments for students.</p>
+                <p>&copy; 2023 Sage Mode Engineering. All rights reserved. | Ethical mentorship compliant with university academic integrity policies worldwide.</p>
+                <p style="margin-top: 0.5rem; font-size: 0.8rem;">Disclaimer: We provide guidance and tutoring services only. We do not complete assignments for students. USD equivalents are approximate based on current exchange rates.</p>
             </div>
         </div>
     </footer>
@@ -944,7 +1058,7 @@
                 const targetElement = document.querySelector(targetId);
                 if(targetElement) {
                     window.scrollTo({
-                        top: targetElement.offsetTop - 100,
+                        top: targetElement.offsetTop - 70, // Adjusted for smaller header
                         behavior: 'smooth'
                     });
                 }
